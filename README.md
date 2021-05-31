@@ -2,7 +2,7 @@
 
 ### A stupid simple script that gets the job done
 
-Marge two databases and remove dublikats from CSV files (e.g. Keepass)
+Marge multiple CSV files and remove dublikats (e.g. Keepass)
 
 The script checks each row, if even one column is different, it does not delete the entire row.
 
@@ -17,7 +17,13 @@ $ yarn install
 ## Usage
 
 ```
-usage: ./marger <source1.csv> <source2.csv> <output.csv>
+node marger.js --source db1.csv db2.csv --output output.csv
+```
+
+or
+
+```
+node marger.js -s db1.csv db2.csv -o output.csv
 ```
 
 Be careful, the script overwrites the output file!

@@ -4,6 +4,8 @@
   "main": "marger.js",
   "license": "MIT",
   "dependencies": {
+    "command-line-args": "^5.1.1",
+    "command-line-usage": "^6.1.1",
     "csv": "^5.5.0",
     "objects-to-csv": "^1.3.6",
     "shallow-equal": "^1.2.1"

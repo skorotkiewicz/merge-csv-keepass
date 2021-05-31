@@ -2,20 +2,31 @@ const fs = require("fs");
 const parse = require("csv-parse/lib/sync");
 const shallow = require("shallow-equal");
 const ObjectsToCsv = require("objects-to-csv");
+const commandLineArgs = require("command-line-args");
 
-const source1 = process.argv[2] ? process.argv[2] : null;
-const source2 = process.argv[3] ? process.argv[3] : null;
-const target = process.argv[4] ? process.argv[4] : null;
+const usage = `usage: ./marger --source <source1.csv> <source2.csv> <source3.csv> --output <output.csv>`;
+
+const optionDefinitions = [
+  { name: "source", type: String, alias: "s", multiple: true },
+  { name: "output", type: String, alias: "o", multiple: false },
+];
+
+let options;
+
+try {
+  options = commandLineArgs(optionDefinitions);
+
+  if (!options.source || !options.output) {
+    return console.log(usage);
+  }
+} catch (error) {
+  return console.log(usage);
+}
+
 let newList = [];
 let countAll = 0;
 let countSave = 0;
 let countDel = 0;
-
-if (source1 === null || source1 === null || target === null) {
-  return console.log(
-    `usage: ./marger <source1.csv> <source2.csv> <output.csv>`
-  );
-}
 
 const addItem = (item) => {
   let check = newList.some((x) => shallow.shallowEqualObjects(x, item));
@@ -29,14 +40,10 @@ const addItem = (item) => {
   countAll++;
 };
 
-for (let t = 0; t < 2; t++) {
-  let src;
-  if (t === 0) src = source1;
-  if (t === 1) src = source2;
+for (let t = 0; t < options.source.length; t++) {
+  console.log(`File ${options.source[t]} done...`);
 
-  console.log(`File ${src} done...`);
-
-  let input = fs.readFileSync(src, "utf8");
+  let input = fs.readFileSync(options.source[t], "utf8");
   let records = parse(input, { columns: true });
 
   records.map((e) => {
@@ -48,7 +55,7 @@ for (let t = 0; t < 2; t++) {
 
 const generateCsv = async (data) => {
   const csv = new ObjectsToCsv(data);
-  await csv.toDisk(target);
+  await csv.toDisk(options.output);
 
   return console.log(
     `\nProcessed: ${countAll} | Saved: ${countSave} | Deleted ${countDel} dublikats.`
