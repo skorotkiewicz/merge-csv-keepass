@@ -3,8 +3,40 @@ const parse = require("csv-parse/lib/sync");
 const shallow = require("shallow-equal");
 const ObjectsToCsv = require("objects-to-csv");
 const commandLineArgs = require("command-line-args");
+const commandLineUsage = require("command-line-usage");
 
-const usage = `usage: ./marger --source <source1.csv> <source2.csv> <source3.csv> --output <output.csv>`;
+const sections = [
+  {
+    header: "CSV Marger",
+    content: "Marge multiple CSV files and remove dublikats",
+  },
+  {
+    header: "Options",
+    optionList: [
+      {
+        name: "source",
+        typeLabel: "{underline file}",
+        description: "The source of CSV/s file/s.",
+      },
+      {
+        name: "output",
+        typeLabel: "{underline file}",
+        description: "The output CSV file.",
+      },
+      {
+        name: "help",
+        description: "Print this usage guide.",
+      },
+    ],
+  },
+  {
+    header: "Example",
+    content:
+      "node marger.js --source db1.csv db2.csv db3.csv --output marged.csv",
+  },
+];
+
+const usage = commandLineUsage(sections);
 
 const optionDefinitions = [
   { name: "source", type: String, alias: "s", multiple: true },
@@ -41,9 +73,14 @@ const addItem = (item) => {
 };
 
 for (let t = 0; t < options.source.length; t++) {
-  console.log(`File ${options.source[t]} done...`);
+  let input;
+  try {
+    input = fs.readFileSync(options.source[t], "utf8");
+    if (input) console.log(`File ${options.source[t]} done...`);
+  } catch (error) {
+    console.log(`Cannot open '${options.source[t]}' file. Skip...`);
+  }
 
-  let input = fs.readFileSync(options.source[t], "utf8");
   let records = parse(input, { columns: true });
 
   records.map((e) => {

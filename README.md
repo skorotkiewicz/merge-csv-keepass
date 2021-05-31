@@ -14,7 +14,7 @@ $ git clone https://github.com/skorotkiewicz/marge-csv-keepass
 $ yarn install
 ```
 
-## Usage
+## Example
 
 ```
 node marger.js --source db1.csv db2.csv --output output.csv
