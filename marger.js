@@ -7,7 +7,9 @@ const source1 = process.argv[2] ? process.argv[2] : null;
 const source2 = process.argv[3] ? process.argv[3] : null;
 const target = process.argv[4] ? process.argv[4] : null;
 let newList = [];
-let countDub = 0;
+let countAll = 0;
+let countSave = 0;
+let countDel = 0;
 
 if (source1 === null || source1 === null || target === null) {
   return console.log(
@@ -20,9 +22,11 @@ const addItem = (item) => {
 
   if (!check) {
     newList.push(item);
+    countSave++;
   } else {
-    countDub++;
+    countDel++;
   }
+  countAll++;
 };
 
 for (let t = 0; t < 2; t++) {
@@ -46,7 +50,9 @@ const generateCsv = async (data) => {
   const csv = new ObjectsToCsv(data);
   await csv.toDisk(target);
 
-  return console.log(`\nDeleted ${countDub} dublikats.`);
+  return console.log(
+    `\nProcessed: ${countAll} | Saved: ${countSave} | Deleted ${countDel} dublikats.`
+  );
 };
 
 generateCsv(newList);
