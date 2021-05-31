@@ -1,31 +1,39 @@
-# marge-csv-keepass
+# marge-csv
 
-### A stupid simple script that gets the job done
-
-Marge multiple CSV files and remove dublikats (e.g. Keepass)
+### Marge multiple CSV files and remove dublikats (e.g. Keepass)
 
 The script checks each row, if even one column is different, it does not delete the entire row.
 
 ![screenshot](https://i.imgur.com/gDQVrwG.png)
 
-## Setup
+## Install
 
 ```
-$ git clone https://github.com/skorotkiewicz/marge-csv-keepass
-
-$ yarn install
+$ npm install marge-csv -g
+or
+$ yarn global add marge-csv
 ```
 
-## Example
+## Usage
 
 ```
-node marger.js --source db1.csv db2.csv --output output.csv
+./marge-csv --source db1.csv db2.csv --output output.csv
 ```
 
 or
 
 ```
-node marger.js -s db1.csv db2.csv -o output.csv
+./marge-csv -s db1.csv db2.csv -o output.csv
 ```
 
-Be careful, the script overwrites the output file!
+> Be careful, the script overwrites the output file!
+
+## Developing
+
+```
+$ git clone https://github.com/skorotkiewicz/marge-csv-keepass
+
+$ yarn install
+
+# node marger.js
+```

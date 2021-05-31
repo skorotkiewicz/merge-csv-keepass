@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require("fs");
 const parse = require("csv-parse/lib/sync");
 const shallow = require("shallow-equal");

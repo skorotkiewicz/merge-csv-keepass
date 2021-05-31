@@ -1,8 +1,17 @@
 {
-  "name": "marge-csv-keepass",
+  "name": "marge-csv",
+  "bin": "./index.js",
   "version": "1.0.0",
-  "main": "marger.js",
+  "main": "index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skorotkiewicz/marge-csv.git"
+  },
+  "bugs": {
+    "url": "https://github.com/skorotkiewicz/marge-csv/issues"
+  },
+  "homepage": "https://github.com/skorotkiewicz/marge-csv#readme",
   "dependencies": {
     "command-line-args": "^5.1.1",
     "command-line-usage": "^6.1.1",
