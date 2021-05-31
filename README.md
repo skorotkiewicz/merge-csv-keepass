@@ -17,13 +17,13 @@ $ yarn global add merge-csv-keepass
 ## Usage
 
 ```
-./merge-csv --source db1.csv db2.csv --output output.csv
+./merge-csv-keepass --source db1.csv db2.csv --output output.csv
 ```
 
 or
 
 ```
-./merge-csv -s db1.csv db2.csv -o output.csv
+./merge-csv-keepass -s db1.csv db2.csv -o output.csv
 ```
 
 > Be careful, the script overwrites the output file!
