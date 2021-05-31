@@ -1,0 +1,11 @@
+{
+  "name": "marge-csv-keepass",
+  "version": "1.0.0",
+  "main": "marger.js",
+  "license": "MIT",
+  "dependencies": {
+    "csv": "^5.5.0",
+    "objects-to-csv": "^1.3.6",
+    "shallow-equal": "^1.2.1"
+  }
+}
