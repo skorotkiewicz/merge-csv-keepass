@@ -4,7 +4,7 @@
 
 The script checks each row, if even one column is different, it does not delete the entire row.
 
-![screenshot](https://i.imgur.com/gDQVrwG.png)
+![screenshot](https://i.imgur.com/o0DMZlH.png)
 
 ## Install
 
