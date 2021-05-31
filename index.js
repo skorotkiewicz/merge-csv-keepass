@@ -33,7 +33,7 @@ const sections = [
   {
     header: "Example",
     content:
-      "node merger.js --source db1.csv db2.csv db3.csv --output merged.csv",
+      "merge-csv-keepass --source db1.csv db2.csv db3.csv --output merged.csv",
   },
 ];
 
