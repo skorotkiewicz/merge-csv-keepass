@@ -8,8 +8,8 @@ const commandLineUsage = require("command-line-usage");
 
 const sections = [
   {
-    header: "CSV Marger",
-    content: "Marge multiple CSV files and remove dublikats",
+    header: "CSV Merger",
+    content: "Merge multiple CSV files and remove dublikats",
   },
   {
     header: "Options",
@@ -33,7 +33,7 @@ const sections = [
   {
     header: "Example",
     content:
-      "node marger.js --source db1.csv db2.csv db3.csv --output marged.csv",
+      "node merger.js --source db1.csv db2.csv db3.csv --output merged.csv",
   },
 ];
 

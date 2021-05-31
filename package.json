@@ -1,17 +1,23 @@
 {
-  "name": "marge-csv",
+  "name": "merge-csv-keepass",
   "bin": "./index.js",
   "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
+  "keywords": [
+    "csv",
+    "merge",
+    "dublikats",
+    "keepass"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/skorotkiewicz/marge-csv.git"
+    "url": "git+https://github.com/skorotkiewicz/merge-csv-keepass.git"
   },
   "bugs": {
-    "url": "https://github.com/skorotkiewicz/marge-csv/issues"
+    "url": "https://github.com/skorotkiewicz/merge-csv-keepass/issues"
   },
-  "homepage": "https://github.com/skorotkiewicz/marge-csv#readme",
+  "homepage": "https://github.com/skorotkiewicz/merge-csv-keepass#readme",
   "dependencies": {
     "command-line-args": "^5.1.1",
     "command-line-usage": "^6.1.1",
