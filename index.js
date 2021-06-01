@@ -9,7 +9,7 @@ const commandLineUsage = require("command-line-usage");
 const sections = [
   {
     header: "CSV Merger",
-    content: "Merge multiple CSV files and remove dublikats",
+    content: "Merge multiple CSV files and remove duplikats",
   },
   {
     header: "Options",
@@ -96,7 +96,7 @@ const generateCsv = async (data) => {
   await csv.toDisk(options.output);
 
   return console.log(
-    `\nProcessed: ${countAll} | Saved: ${countSave} | Deleted ${countDel} dublikats.`
+    `\nProcessed: ${countAll} | Saved: ${countSave} | Deleted ${countDel} duplikats.`
   );
 };
 

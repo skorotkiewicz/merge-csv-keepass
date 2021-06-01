@@ -1,6 +1,6 @@
 # merge-csv-keepass
 
-### Merge multiple CSV files and remove dublikats (e.g. Keepass)
+### Merge multiple CSV files and remove duplikats (e.g. Keepass)
 
 The script checks each row, if even one column is different, it does not delete the entire row.
 
@@ -17,13 +17,13 @@ $ yarn global add merge-csv-keepass
 ## Usage
 
 ```
-./merge-csv-keepass --source db1.csv db2.csv --output output.csv
+merge-csv-keepass --source db1.csv db2.csv --output output.csv
 ```
 
 or
 
 ```
-./merge-csv-keepass -s db1.csv db2.csv -o output.csv
+merge-csv-keepass -s db1.csv db2.csv -o output.csv
 ```
 
 > Be careful, the script overwrites the output file!
